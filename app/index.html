@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="app.css">
   <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
 </head>
-<body>
+<body ng-app='carcassonne'>
 
   <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -25,6 +25,18 @@
   <div>Angular seed app: v<span app-version></span></div>
 
 	<div>Hello world</div>
+	<div ng-controller="GreetingController">
+		hi {{greeting}}
+	</br>
+	<div ng-click="addTile()" style="margin-left:100px; width: 500px; height:500px; background-color:yellow;">
+		<div ng-repeat="tile in tiles">
+		<div ng-click="addTile()" style="height:50px; width:50px; background-color:green; margin:8px;">{{tile}}</div>
+		</div>
+	</div>
+	
+		
+	</div>
+	<div>another</div>
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
   -->
