@@ -28,10 +28,17 @@
 	<div ng-controller="GreetingController">
 		hi {{greeting}}
 	</br>
-	<div ng-click="addTile()" style="margin-left:100px; width: 500px; height:500px; background-color:yellow;">
-		<div ng-repeat="tile in tiles">
-		<div ng-click="addTile()" style="height:50px; width:50px; background-color:green; margin:8px;">{{tile}}</div>
+	<div ng-click="" style="margin-left:100px; width: 500px; height:500px; background-color:yellow;">
+	
+		
+		<div class="display:table;">
+			<div ng-repeat="row in rows track by $index" style="display:table-row;">
+				<div style="display:table-cell;"ng-repeat="col in cols track by $index" data-col="{{$index}}" data-row="{{$parent.$index}}" class="col" >
+					<div ng-click="makeMove($event,$index, $parent.$index)"style="margin:5px;width:50px; height:50px; border:solid;">{{$index}}</div>
+				</div>
+			</div>
 		</div>
+		
 	</div>
 	
 		
