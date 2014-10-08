@@ -13,6 +13,9 @@
   <link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
   <link rel="stylesheet" href="app.css">
   <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
+
+
+
 </head>
 <body ng-app='carcassonne'>
 
@@ -22,13 +25,13 @@
 
   <div ng-view></div>
 
-  <div>Angular seed app: v<span app-version></span></div>
+  <div>Welcome to Carcassonne<span app-version></span></div>
 
-	<div>Hello world</div>
+	<div><b>Next Tile:</b></div>
 	<div ng-controller="GreetingController">
-		hi {{greeting}}
+		{{tile}}
 	</br>
-	<div ng-click="" style="margin-left:100px; width: 500px; height:500px; background-color:yellow;">
+	<div ng-click="" style="margin-left:100px; width: 1000px; height:1000px; background-color:yellow;">
 	
 		
 		<div class="display:table;">

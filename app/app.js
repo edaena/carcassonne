@@ -5,21 +5,23 @@
 var myApp = angular.module('carcassonne',[]);
 
 myApp.controller('GreetingController', ['$scope', function($scope) {
-  $scope.greeting = 'Hola!';
-  var count = 2;
+  $scope.tile = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 3);
+  var tiles_remaining = 10;
   $scope.rows = [];
   $scope.cols = [];
-  
-  for(var r=0; r<5; ++r) {
+  for(var r=0; r<15; ++r) {
   	 $scope.rows.push(r);
   	 $scope.cols.push(r);
   }
   
   $scope.makeMove = function(e, index, parentIndex) {
-  	console.log(parentIndex + " "+ index);
-	var elem = angular.element(e.srcElement);
-	elem.className='tile';
-	alert(elem.className);
+	if(tiles_remaining-- > 0){  	
+		console.log(parentIndex + " "+ index);
+		var elem = angular.element(e.srcElement);
+		elem.addClass("tile");
+		elem.text($scope.tile);
+		$scope.tile = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 3);
+	}	
   };
   
 }]);
