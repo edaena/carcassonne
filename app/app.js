@@ -8,7 +8,7 @@ var getImagePath = function(img){
 	return "<img src='tile_images/" + img + ".png'>";
 }
 
-myApp.controller('GreetingController', ['$scope', function($scope) {
+myApp.controller('GameController', ['$scope', function($scope) {
 	var tileNames = ['all-city_1', 'city-except-down_3', 'city-except-down_3', 'city-except-down_3'];
   var tileIndex = 0;
   $scope.nextTile = getImagePath(tileNames[tileIndex]);
