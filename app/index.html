@@ -37,7 +37,8 @@
 		<div class="display:table;">
 			<div ng-repeat="row in rows track by $index" style="display:table-row;">
 				<div style="display:table-cell;"ng-repeat="col in cols track by $index" data-col="{{$index}}" data-row="{{$parent.$index}}" class="col" >
-					<div ng-click="makeMove($event,$index, $parent.$index)"style="margin:5px;width:50px; height:50px; border:solid;">{{$index}}</div>
+					<div ng-click="makeMove($event,$index, $parent.$index)"style="margin:5px;width:90px; height:90px; border:solid;">
+					</div>
 				</div>
 			</div>
 		</div>
