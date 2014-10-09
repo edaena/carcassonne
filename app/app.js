@@ -4,10 +4,14 @@
 
 var myApp = angular.module('carcassonne',[]);
 
+var getImagePath = function(img){
+	return "<img src='tile_images/" + img + ".png'>";
+}
+
 myApp.controller('GreetingController', ['$scope', function($scope) {
-  $scope.tile = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 3);
-  var tileNames = ['all-city_1', 'city-except-down_3', 'city-except-down_3', 'city-except-down_3'];
+	var tileNames = ['all-city_1', 'city-except-down_3', 'city-except-down_3', 'city-except-down_3'];
   var tileIndex = 0;
+  $scope.nextTile = getImagePath(tileNames[tileIndex]);
   $scope.rows = [];
   $scope.cols = [];
   for(var r=0; r<15; ++r) {
@@ -16,17 +20,18 @@ myApp.controller('GreetingController', ['$scope', function($scope) {
   }
   
   $scope.makeMove = function(e, index, parentIndex) {
-	if(tileIndex < tileNames.length){
-		var tileName = tileNames[tileIndex++];
-		console.log(parentIndex + " "+ index);
-		var elem = angular.element(e.srcElement);
-		elem.addClass("tile");
-		elem.text($scope.tile);
-		var imagePath = "<img src='tile_images/" + tileName + ".png'>";
-		elem.html(imagePath);
-	}	
+		if(tileIndex < tileNames.length){
+			var tileName = tileNames[tileIndex++];
+			console.log(parentIndex + " "+ index);
+			var elem = angular.element(e.srcElement);
+			elem.addClass("tile");
+			elem.text($scope.tile);
+			var imagePath = getImagePath(tileName);
+			$scope.nextTile = imagePath;
+			elem.html(imagePath);
+		}	
   };
-  
+    
 }]);
 
 /*config(['$routeProvider', function($routeProvider) {
