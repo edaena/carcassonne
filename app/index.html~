@@ -6,34 +6,38 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Carcassonne</title>
+  <title>My AngularJS App</title>
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
-  <link rel="stylesheet" href="styles/tile.css">
+  <link rel="stylesheet" href="app.css">
   <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
 
 
 
 </head>
 <body ng-app='carcassonne'>
+
+  <!--[if lt IE 7]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
   <div ng-view></div>
 
   <div>Welcome to Carcassonne<span app-version></span></div>
 
 	<div><b>Next Tile:</b></div>
-	<div ng-controller="GameController">
-		{{nextTile}}
+	<div ng-controller="GreetingController">
+		{{tile}}
 	</br>
-	<div ng-click="" style="margin-left:100px; width: 1000px; height:1000px; background-color:yellow;">
+	<div ng-click="" style="margin-left:100px; width: 1500px; height:1500px; background-color:yellow;">
 	
 		
 		<div class="display:table;">
 			<div ng-repeat="row in rows track by $index" style="display:table-row;">
 				<div style="display:table-cell;"ng-repeat="col in cols track by $index" data-col="{{$index}}" data-row="{{$parent.$index}}" class="col" >
-					<div ng-click="makeMove($event,$index, $parent.$index)"style="margin:5px;width:90px; height:90px; border:solid;">
-					</div>
+					<div ng-click="makeMove($event,$index, $parent.$index)"style="margin:5px;width:50px; height:50px; border:solid;">{{$index}}</div>
 				</div>
 			</div>
 		</div>
@@ -48,9 +52,7 @@
   -->
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
-  <script src="models/board.js"></script>
-  <script src="controllers/board-controller.js"></script>
-  <script src="controllers/game-controller.js"></script>
+  <script src="app.js"></script>
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
   <script src="components/version/interpolate-filter.js"></script>
