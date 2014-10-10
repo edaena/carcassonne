@@ -13,10 +13,8 @@
   <link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
   <link rel="stylesheet" href="styles/tile.css">
   <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
-
-
-
 </head>
+
 <body ng-app='carcassonne'>
   <div ng-view></div>
 
@@ -27,22 +25,18 @@
 		{{nextTile}}
 	</br>
 	<div ng-click="" style="margin-left:100px; width: 1000px; height:1000px; background-color:yellow;">
-	
-		
 		<div class="display:table;">
 			<div ng-repeat="row in rows track by $index" style="display:table-row;">
 				<div style="display:table-cell;"ng-repeat="col in cols track by $index" data-col="{{$index}}" data-row="{{$parent.$index}}" class="col" >
-					<div ng-click="makeMove($event,$index, $parent.$index)"style="margin:5px;width:90px; height:90px; border:solid;">
+					<div ng-click="makeMove($event,$index, $parent.$index)"style="width:90px; height:90px; border:solid;">
 					</div>
 				</div>
 			</div>
 		</div>
-		
 	</div>
 	
 		
 	</div>
-	<div>another</div>
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
   -->

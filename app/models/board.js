@@ -27,6 +27,7 @@ Board.prototype = {
             console.log(parentIndex + " " + index);
             var elem = angular.element(e.srcElement);
             elem.addClass("tile");
+            elem.addClass("all-city");
             var imagePath = getImagePath(tileName);
             scope.nextTile = imagePath;
             elem.html(imagePath);

@@ -4,8 +4,6 @@
 
 var myApp = angular.module('carcassonne',[]);
 
-
-
 myApp.controller('GameController', ['$scope', function($scope) {
     var board = new Board();
     board.buildGame($scope);
