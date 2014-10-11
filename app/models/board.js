@@ -1,13 +1,13 @@
 var getImagePath = function(img){
     return "<img src='tile_images/" + img + ".png'>";
-}
+};
 
 var Board = function(numRows, numCols){
     //this.tileIndex = 0;
    	this.numRows = numRows;
    	this.numCols = numCols;
     //this.tileNames = ['all-city_1', 'city-except-down_3', 'city-except-down_3', 'city-except-down_3'];
-}
+};
 
 Board.prototype = {
     buildGame : function(scope){
@@ -22,5 +22,5 @@ Board.prototype = {
 		  	}
 		  }
     }
-}
+};
 
