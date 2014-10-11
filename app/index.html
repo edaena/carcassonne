@@ -28,16 +28,14 @@
 	</br>
 	<div ng-click="" style="margin-left:100px; width: 1000px; height:1000px; background-color:yellow;">
 	
-		
 		<div class="display:table;">
-			<div ng-repeat="row in rows track by $index" style="display:table-row;">
-				<div style="display:table-cell;"ng-repeat="col in cols track by $index" data-col="{{$index}}" data-row="{{$parent.$index}}" class="col" >
-					<div ng-click="makeMove($event,$index, $parent.$index)"style="margin:5px;width:90px; height:90px; border:solid;">
+			<div ng-repeat="row in tileCells track by $index" style="display:table-row;">
+				<div style="display:table-cell;"ng-repeat="tile in tileCells[$index] track by $index" data-col="{{$index}}" data-row="{{$parent.$index}}" class="col" >
+					 <div ng-class="tile.classValue" ng-click="placeTile(tile)" style="margin:1px;width:90px; height:90px; border:solid; border-width:1px;">
 					</div>
 				</div>
 			</div>
 		</div>
-		
 	</div>
 	
 		

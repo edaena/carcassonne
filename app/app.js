@@ -14,22 +14,20 @@ myApp.controller('GameController', ['$scope', function($scope) {
   $scope.nextTile = getImagePath(tileNames[tileIndex]);
   $scope.rows = [];
   $scope.cols = [];
-  for(var r=0; r<15; ++r) {
-  	 $scope.rows.push(r);
-  	 $scope.cols.push(r);
+  
+  $scope.tileCells = [];
+  
+  // Build an array with 5 rows and 5 tiles, TO-DO change the size
+  for (var r = 0; r < 5; ++r) {
+  	// Container for the tiles from a particular row
+  	$scope.tileCells.push([]);
+  	for(var c = 0; c < 5; ++c) {
+  		$scope.tileCells[r].push({classValue:''}); // pushing a tile, TO-DO create tile object;
+  	}
   }
   
-  $scope.makeMove = function(e, index, parentIndex) {
-		if(tileIndex < tileNames.length){
-			var tileName = tileNames[tileIndex++];
-			console.log(parentIndex + " "+ index);
-			var elem = angular.element(e.srcElement);
-			elem.addClass("tile");
-			elem.text($scope.tile);
-			var imagePath = getImagePath(tileName);
-			$scope.nextTile = imagePath;
-			elem.html(imagePath);
-		}	
+  $scope.placeTile = function(tile) {
+	tile.classValue = 'tile';
   };
     
 }]);
