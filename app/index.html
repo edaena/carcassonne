@@ -11,12 +11,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
-  <link rel="stylesheet" href="app.css">
+  <link rel="stylesheet" href="styles/tile.css">
   <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
-
-
-
 </head>
+
 <body ng-app='carcassonne'>
   <div ng-view></div>
 
@@ -27,7 +25,6 @@
 		{{nextTile}}
 	</br>
 	<div ng-click="" style="margin-left:100px; width: 1000px; height:1000px; background-color:yellow;">
-	
 		<div class="display:table;">
 			<div ng-repeat="row in tileCells track by $index" style="display:table-row;">
 				<div style="display:table-cell;"ng-repeat="tile in tileCells[$index] track by $index" data-col="{{$index}}" data-row="{{$parent.$index}}" class="col" >
@@ -40,13 +37,14 @@
 	
 		
 	</div>
-	<div>another</div>
   <!-- In production use:
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
   -->
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
-  <script src="app.js"></script>
+  <script src="models/board.js"></script>
+  <script src="controllers/board-controller.js"></script>
+  <script src="controllers/game-controller.js"></script>
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
   <script src="components/version/interpolate-filter.js"></script>

@@ -1,0 +1,8 @@
+.tile {
+	background-image: url('../tile_images/all-city_1.png');
+}
+
+/* This doesn't work */
+.all-city{
+    background-image: url('tile_images/all-city_1.png');
+}
