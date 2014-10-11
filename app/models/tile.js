@@ -1,12 +1,12 @@
 var Tile = function(type){
     this.type = type;
-}
+};
 
 Tile.prototype = {
     buildTile: function(){
 
     }
-}
+};
 
 var TILE_TYPES = {
     ALL_CITY : {
@@ -14,5 +14,5 @@ var TILE_TYPES = {
         legalPlacements : ["in city"],
         img_path : "<img src='tile_images/all-city_1.png>"
     }
-}
+};
 
