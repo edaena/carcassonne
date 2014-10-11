@@ -5,7 +5,7 @@
 var myApp = angular.module('carcassonne',[]);
 
 myApp.controller('GameController', ['$scope', function($scope) {
-    var board = new Board();
+    var board = new Board(6, 6);
     board.buildGame($scope);
     
     $scope.placeTile = function(tile) {
