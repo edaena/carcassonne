@@ -22,8 +22,7 @@
 
 	<div><b>Next Tile:</b></div>
 	<div ng-controller="GameController">
-		{{nextTile}}
-	</br>
+		{{nextTile.img_path}}
 	<div ng-click="" style="margin-left:100px; width: 1000px; height:1000px; border:solid; border-width:1px">
 		<div class="display:table;">
 			<div ng-repeat="row in tileCells track by $index" style="display:table-row;">
@@ -43,7 +42,8 @@
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
   <script src="models/board.js"></script>
-  <script src="controllers/board-controller.js"></script>
+  <script src="models/tile.js"></script>
+  <!--script src="controllers/board-controller.js"></script-->
   <script src="controllers/game-controller.js"></script>
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
