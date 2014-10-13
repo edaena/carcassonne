@@ -10,8 +10,8 @@ myApp.controller('GameController', ['$scope', function($scope) {
     console.log(board);
     $scope.placeTile = function(tile) {
     	var img = $scope.nextTile.img_path;
-    	console.log(tile);
-		//tile.background-image = 'url(' + img + ');';
+		tile.img = img;
+    	console.log("blah" + tile.img);
     	$scope.nextTile = tileSet.pop();
     };
 }]);
