@@ -11,7 +11,9 @@ Board.prototype = {
 		  	for(var c = 0; c < this.numCols; ++c) {
 		  		scope.tileCells[r].push({classValue:''});
 		  	}
-		  }
+		}
+        console.log(TILE_TYPES['STARTING_TILE']);
     }
+
 };
 

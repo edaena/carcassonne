@@ -22,7 +22,7 @@
 
 	<div><b>Next Tile:</b></div>
 	<div ng-controller="GameController">
-		{{nextTile.img_path}}
+		<img src={{nextTile.img_path}} />
 	<div ng-click="" style="margin-left:100px; width: 1000px; height:1000px; border:solid; border-width:1px">
 		<div class="display:table;">
 			<div ng-repeat="row in tileCells track by $index" style="display:table-row;">

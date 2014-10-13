@@ -9,9 +9,11 @@ myApp.controller('GameController', ['$scope', function($scope) {
     board.buildGame($scope);
     console.log(board);
     $scope.placeTile = function(tile) {
-    	console.log("place tile");
-		tile.classValue = 'tile';
-  };
+    	var img = $scope.nextTile.img_path;
+    	console.log(tile);
+		//tile.background-image = 'url(' + img + ');';
+    	$scope.nextTile = tileSet.pop();
+    };
 }]);
 
 /*config(['$routeProvider', function($routeProvider) {
