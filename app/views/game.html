@@ -1,0 +1,15 @@
+<div>
+	<b>Next Tile:</b>
+</div>
+<img src={{nextTile.img_path}} />
+<div ng-click="" style="margin-left:100px; width: 1000px; height:1000px; border:solid; border-width:1px">
+	<div class="display:table;">
+		<div ng-repeat="row in tileCells track by $index" style="display:table-row;">
+			<div style="display:table-cell;"ng-repeat="tile in tileCells[$index] track by $index" data-col="{{$index}}" data-row="{{$parent.$index}}" class="col" >
+				<div ng-class="tile.classValue" ng-click="placeTile(tile)" style="margin:1px;width:90px; height:90px; border:solid; border-width:1px;" >
+					<img ng-src="{{tile.img}}" />
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

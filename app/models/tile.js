@@ -3,6 +3,7 @@ var Tile = function(tile){
     this.legalPlacements = tile['legalPlacements'];
     this.img_path = tile['img_path'];
     this.banner = tile['banner'];
+    this.rotations = 0;
 };
 
 Tile.prototype = {

@@ -13,6 +13,24 @@ myApp.controller('GameController', ['$scope', function($scope) {
     	console.log(tile);
     	$scope.nextTile = tileSet.pop();
     };
+    $scope.rotate = function(){
+    	console.log("Heh");
+    	$scope.nextTile.rotations++;
+    	$scope.nextTile.rotations %= 4;
+    	switch($scope.nextTile.rotations){
+    		case 0:
+    			$scope.nextTile.rotation_style = "";
+    			break;
+    		case 1:
+    			$scope.nextTile.rotation_style = "rotate-90";
+    			break;
+    		case 2:
+    			$scope.nextTile.rotation_style = "rotate-180";
+    			break;
+    		case 3:
+    			$scope.nextTile.rotation_style = "rotate-270";
+    	}
+    };
 }]);
 
 /*config(['$routeProvider', function($routeProvider) {

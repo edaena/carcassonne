@@ -1,8 +1,11 @@
-.tile {
-	background-image: url('../tile_images/all-city_1.png');
+.rotate-90 {
+	transform:rotate(90deg);
 }
 
-/* This doesn't work */
-.all-city{
-    background-image: url('tile_images/all-city_1.png');
+.rotate-180 {
+	transform:rotate(180deg);
+}
+
+.rotate-270 {
+	transform:rotate(270deg);
 }
