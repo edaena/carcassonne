@@ -8,7 +8,24 @@ var Tile = function(tile){
 
 Tile.prototype = {
     buildTile: function(){
-
+    	console.log('hello');
+    },
+    rotate: function(){
+    	this.rotations++;
+    	this.rotations %= 4;
+    	switch(this.rotations){
+    		case 0:
+    			this.rotation_style = "";
+    			break;
+    		case 1:
+    			this.rotation_style = "rotate-90";
+    			break;
+    		case 2:
+    			this.rotation_style = "rotate-180";
+    			break;
+    		case 3:
+    			this.rotation_style = "rotate-270";
+    	}
     }
 };
 

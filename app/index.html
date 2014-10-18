@@ -24,7 +24,7 @@
 			Welcome to Carcassonne<span app-version></span>
 		</div>
 		<div ng-controller="GameController">
-			<button ng-click="rotate()">Rotate</button>
+			<button ng-click="nextTile.rotate()">Rotate</button>
 			<div>
 				<b>Next Tile:</b>
 				<img class={{nextTile.rotation_style}} src={{nextTile.img_path}} />
