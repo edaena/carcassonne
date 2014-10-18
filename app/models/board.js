@@ -1,19 +1,20 @@
 var Board = function(numRows, numCols){
    	this.numRows = numRows;
    	this.numCols = numCols;
+   	this.tileCells = [];
 };
 
 Board.prototype = {
-    buildGame : function(scope){
-        scope.tileCells = [];
+    buildGame : function(){
         for (var r = 0; r < this.numRows; ++r) {
-		  	scope.tileCells.push([]);
+		  	this.tileCells.push([]);
 		  	for(var c = 0; c < this.numCols; ++c) {
-		  		scope.tileCells[r].push({classValue:''});
+		  		this.tileCells[r].push({});
 		  	}
 		}
-        console.log(TILE_TYPES['STARTING_TILE']);
+    },
+    render : function(){
+    	return this.tileCells;
     }
-
 };
 

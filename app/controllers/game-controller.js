@@ -1,12 +1,11 @@
-'use strict';
-
 var myApp = angular.module('carcassonne',[]);
 
 myApp.controller('GameController', ['$scope', function($scope) {
 	var tileSet = getTileSet();
 	$scope.nextTile = tileSet.pop();
     var board = new Board(6, 6);
-    board.buildGame($scope);
+    board.buildGame();
+    $scope.tileCells = board.render();
     console.log(board);
     $scope.placeTile = function(tile) {
     	tile.img = $scope.nextTile.img_path;
@@ -15,7 +14,3 @@ myApp.controller('GameController', ['$scope', function($scope) {
     	$scope.nextTile = tileSet.pop();
     };
 }]);
-
-/*config(['$routeProvider', function($routeProvider) {
- $routeProvider.otherwise({redirectTo: '/view1'});
- }]);*/
