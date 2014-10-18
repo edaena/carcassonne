@@ -10,11 +10,11 @@ myApp.controller('GameController', ['$scope', function($scope) {
     console.log(board);
     $scope.placeTile = function(tile) {
     	tile.img = $scope.nextTile.img_path;
+    	tile.rotation_style = $scope.nextTile.rotation_style;
     	console.log(tile);
     	$scope.nextTile = tileSet.pop();
     };
     $scope.rotate = function(){
-    	console.log("Heh");
     	$scope.nextTile.rotations++;
     	$scope.nextTile.rotations %= 4;
     	switch($scope.nextTile.rotations){
