@@ -1,9 +1,11 @@
 var Tile = function(tile){
-    this.count = tile['count'];
-    this.legalPlacements = tile['legalPlacements'];
-    this.img_path = tile['img_path'];
-    this.banner = tile['banner'];
+	this.name = tile.name;
+    this.count = tile.count;
+    this.legalPlacements = tile.legalPlacements;
+    this.imgPath = tile.imgPath;
+    this.banner = tile.banner;
     this.rotations = 0;
+    this.rotationStyle = "";
 };
 
 Tile.prototype = {
@@ -15,55 +17,44 @@ Tile.prototype = {
     	this.rotations %= 4;
     	switch(this.rotations){
     		case 0:
-    			this.rotation_style = "";
+    			this.rotationStyle = "";
     			break;
     		case 1:
-    			this.rotation_style = "rotate-90";
+    			this.rotationStyle = "rotate-90";
     			break;
     		case 2:
-    			this.rotation_style = "rotate-180";
+    			this.rotationStyle = "rotate-180";
     			break;
     		case 3:
-    			this.rotation_style = "rotate-270";
+    			this.rotationStyle = "rotate-270";
     	}
     }
 };
 
-var TILE_TYPES = {
-	'ALL_CITY' : {
-        'count' : 1,
-        'legalPlacements' : ["in city"],
-        'img_path' : "tile_images/all-city_1.png"
-    },
-    'CITY_EXCEPT_DOWN' : {
-        'count' : 3,
-        'legalPlacements' : ["in city"],
-        'img_path' : "tile_images/city-except-down_3.png"
-    },
-    'CITY_EXCEPT_DOWN_BAN' : {
-        'count' : 1,
-        'legalPlacements' : ["in city"],
-        'img_path' : "tile_images/city-except-down-ban_1.png",
-        'banner': true
-    },
-    'STARTING_TILE' : {
-    	'count' : 1,
-    	'legalPlacements' : ["in city"],
-        'img_path' : "tile_images/starting-tile_1.png"
-    }
-};
+var TILE_TYPES = [ 
+	{name: 'ALL_CITY', count: 1, legalPlacements: ["in city"], imgPath: "tile_images/all-city_1.png", banner: false},
+	{name: 'CITY_EXCEPT_DOWN', count: 3, legalPlacements: ["in city"], imgPath: "tile_images/city-except-down_3.png", banner: false },
+	{name: 'CITY_EXCEPT_DOWN_BAN', count: 1, legalPlacements: ["in city"], imgPath: "tile_images/all-city_1.png", banner: true },
+	{name: 'STARTING_TILE', count: 1, legalPlacements: ["in city"], imgPath: "tile_images/all-city_1.png", banner: false}];
+
 
 var getTileSet = function(){
-	var result = [];
+	var tiles = [];
 	var key;
-	for(key in TILE_TYPES){
-		if(key == 'STARTING_TILE'){
+	console.log(TILE_TYPES.length);
+	
+	for (var i=0; i<TILE_TYPES.length; ++i) {
+		var tileType = TILE_TYPES[i];
+		
+		if(tileType.name == 'STARTING_TILE'){
 			continue;
 		}
-		for(var i = 0; i < TILE_TYPES[key]['count']; i++){
-			var tile = new Tile(TILE_TYPES[key]);
-			result.push(tile);
+		
+		for(var j = 0; j < tileType.count; ++j){
+			var tile = new Tile(tileType);
+			tiles.push(tile);
 		}
 	}
-	return result;
+
+	return tiles;
 };

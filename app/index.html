@@ -28,17 +28,21 @@
 			</button>
 			<div>
 				<b>Next Tile:</b>
-				<img class={{nextTile.rotation_style}} src={{nextTile.img_path}} />
+				<img class={{nextTile.rotationStyle}} ng-src={{nextTile.imgPath}} />
 				<div ng-click="" style="margin-left:100px; width: 1000px; height:1000px; border:solid; border-width:1px">
-					<div class="display:table;">
-						<div ng-repeat="row in tileCells track by $index" style="display:table-row;">
-							<div style="display:table-cell;"ng-repeat="tile in tileCells[$index] track by $index" data-col="{{$index}}" data-row="{{$parent.$index}}" class="col" >
-								<div ng-class="tile.classValue" ng-click="placeTile(tile)" style="margin:1px;width:90px; height:90px; border:solid; border-width:1px;" >
-									<img class={{tile.rotation_style}} ng-src="{{tile.img}}" />
+					
+				<table>
+					<tbody>
+						<tr ng-repeat="row in tileCells">
+							<td ng-repeat="tile in tileCells[$index]">
+								<div ng-class="tile.classValue" ng-click="placeTile(tile, $parent.$index, $index)" style="width:90px; height:90px; border:solid; " >
+									<img class={{tile.rotationStyle}} ng-src="{{tile.imgPath}}" />
+							
 								</div>
-							</div>
-						</div>
-					</div>
+							</td>
+						</tr>
+					</tbody>
+				</table>
 				</div>
 			</div>
 		</div>

@@ -15,6 +15,9 @@ Board.prototype = {
     },
     render : function(){
     	return this.tileCells;
+    },
+    placeTile: function(tile, row, col) {
+    	this.tileCells[row][col] = tile;
     }
 };
 

@@ -7,10 +7,13 @@ myApp.controller('GameController', ['$scope', function($scope) {
     board.buildGame();
     $scope.tileCells = board.render();
     console.log(board);
-    $scope.placeTile = function(tile) {
-    	tile.img = $scope.nextTile.img_path;
-    	tile.rotation_style = $scope.nextTile.rotation_style;
-    	console.log(tile);
+    
+    $scope.placeTile = function(tileCell, row, col) {
+    	board.placeTile($scope.nextTile, row, col)
+    	//tile.imgPath = $scope.nextTile.imgPath;
+    	//tileCell.rotationStyle = $scope.nextTile.rotationStyle; // Tile cells don't rotate
+    	//console.log(tile);
     	$scope.nextTile = tileSet.pop();
+    	  $scope.tileCells = board.render();
     };
 }]);
