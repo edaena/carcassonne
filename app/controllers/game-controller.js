@@ -10,9 +10,6 @@ myApp.controller('GameController', ['$scope', function($scope) {
     
     $scope.placeTile = function(tileCell, row, col) {
     	board.placeTile($scope.nextTile, row, col)
-    	//tile.imgPath = $scope.nextTile.imgPath;
-    	//tileCell.rotationStyle = $scope.nextTile.rotationStyle; // Tile cells don't rotate
-    	//console.log(tile);
     	$scope.nextTile = tileSet.pop();
     	  $scope.tileCells = board.render();
     };
