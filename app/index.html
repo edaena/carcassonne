@@ -22,7 +22,9 @@
 		<div>
 			Welcome to Carcassonne<span app-version></span>
 		</div>
+
 		<div ng-controller="GameController">
+            <div>Player {{activePlayer.id}}'s turn</div>
 			<button ng-click="nextTile.rotate()">
 				Rotate
 			</button>
@@ -52,7 +54,8 @@
 		<script src="bower_components/angular/angular.js"></script>
 		<script src="bower_components/angular-route/angular-route.js"></script>
 		<script src="models/board.js"></script>
-		<script src="models/tile.js"></script>
+        <script src="models/player.js"></script>
+        <script src="models/tile.js"></script>
 		<!--script src="controllers/board-controller.js"></script-->
 		<script src="controllers/game-controller.js"></script>
 		<script src="components/version/version.js"></script>
