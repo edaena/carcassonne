@@ -6,6 +6,7 @@ var Tile = function(tile){
     this.banner = tile.banner;
     this.rotations = 0;
     this.rotationStyle = "";
+    this.sides = tile.sides;
 };
 
 Tile.prototype = {

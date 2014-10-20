@@ -9,8 +9,9 @@ myApp.controller('GameController', ['$scope', function($scope) {
     console.log(board);
     
     $scope.placeTile = function(tileCell, row, col) {
-    	board.placeTile($scope.nextTile, row, col)
-    	$scope.nextTile = tileSet.pop();
-    	  $scope.tileCells = board.render();
+    	if(board.placeTile($scope.nextTile, row, col)){
+	    	$scope.nextTile = tileSet.pop();
+	    	$scope.tileCells = board.render();
+	    }
     };
 }]);
