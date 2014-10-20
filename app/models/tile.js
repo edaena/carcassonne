@@ -6,6 +6,7 @@ var Tile = function(tile){
     this.banner = tile.banner;
     this.rotations = 0;
     this.rotationStyle = "";
+    this.sides = tile.sides;
 };
 
 Tile.prototype = {
@@ -31,11 +32,18 @@ Tile.prototype = {
     }
 };
 
+var SIDES = {
+	city : "city",
+	road : "road",
+	land : "land"
+};
+
+// sides : [north, east, south, west]
 var TILE_TYPES = [ 
-	{name: 'ALL_CITY', count: 1, legalPlacements: ["in city"], imgPath: "tile_images/all-city_1.png", banner: false},
-	{name: 'CITY_EXCEPT_DOWN', count: 3, legalPlacements: ["in city"], imgPath: "tile_images/city-except-down_3.png", banner: false },
-	{name: 'CITY_EXCEPT_DOWN_BAN', count: 1, legalPlacements: ["in city"], imgPath: "tile_images/all-city_1.png", banner: true },
-	{name: 'STARTING_TILE', count: 1, legalPlacements: ["in city"], imgPath: "tile_images/all-city_1.png", banner: false}];
+	{name: 'ALL_CITY', count: 1, legalPlacements: ["in city"], imgPath: "tile_images/all-city_1.png", banner: false, sides: [SIDES.city, SIDES.city, SIDES.city, SIDES.city]},
+	{name: 'CITY_EXCEPT_DOWN', count: 3, legalPlacements: ["in city"], imgPath: "tile_images/city-except-down_3.png", banner: false, sides: [SIDES.city, SIDES.city, SIDES.land, SIDES.city] },
+	{name: 'CITY_EXCEPT_DOWN_BAN', count: 1, legalPlacements: ["in city"], imgPath: "tile_images/city-except-down-ban_1.png", banner: true, sides: [SIDES.city, SIDES.city, SIDES.land, SIDES.city] },
+	{name: 'STARTING_TILE', count: 1, legalPlacements: ["in city"], imgPath: "tile_images/all-city_1.png", banner: false, sides: [SIDES.city, SIDES.road, SIDES.land, SIDES.road]}];
 
 
 var getTileSet = function(){
