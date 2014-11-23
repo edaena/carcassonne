@@ -24,6 +24,7 @@ Board.prototype = {
 		return this.tileCells;
 	},
 	placeTile : function(tile, row, col) {
+		console.log("tile: " + tile.sides);
 		if(!this.validatePlay(tile, row, col))
 			return false;
 		this.tileCells[row][col] = tile;
