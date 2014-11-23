@@ -31,15 +31,15 @@ Board.prototype = {
 	},
 	validatePlay : function(tile, row, col) {
 		var edges = this.getNeighborEdges(row, col);
-		
 		if (edges[NORTH] === '' && edges[EAST] === '' && edges[SOUTH] === '' && edges[WEST] === '') {
 			if(!allow) {
 				 return false;
 			}
 			allow = false;
 		}
-		return this.matchSides(tile.sides[NORTH],edges[NORTH]) && this.matchSides(tile.sides[EAST],edges[EAST]) 
-				&& this.matchSides(tile.sides[SOUTH],edges[SOUTH]) && this.matchSides(tile.sides[WEST],edges[WEST]);
+		
+		return this.matchSides(tile.getSide(NORTH),edges[NORTH]) && this.matchSides(tile.getSide(EAST),edges[EAST]) 
+				&& this.matchSides(tile.getSide(SOUTH),edges[SOUTH]) && this.matchSides(tile.getSide(WEST),edges[WEST]);
 	},
 	matchSides : function(current, expected) {
 		return current === expected || expected === '';
@@ -55,19 +55,19 @@ Board.prototype = {
 		var westTile = this.tileCells[row][col - 1];
 		
 		if (northTile.name) {
-			edges[NORTH] = northTile.sides[SOUTH]; 
+			edges[NORTH] = northTile.getSide(SOUTH); 
 		}
 		
 		if (eastTile.name) {
-			edges[EAST] = eastTile.sides[WEST];
+			edges[EAST] = eastTile.getSide(WEST);
 		}
 		
 		if (southTile.name) {
-			edges[SOUTH] = southTile.sides[NORTH]; 
+			edges[SOUTH] = southTile.getSide(NORTH); 
 		}
 		
 		if (westTile.name) {
-			edges[WEST] = westTile.sides[EAST]; 
+			edges[WEST] = westTile.getSide(EAST); 
 		}
 		
 		return edges;

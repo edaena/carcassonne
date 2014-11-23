@@ -29,6 +29,10 @@ Tile.prototype = {
     		case 3:
     			this.rotationStyle = "rotate-270";
     	}
+    },
+    getSide: function(direction){
+    	var orientation = (4 + direction - this.rotations) % 4;
+    	return this.sides[orientation];
     }
 };
 
@@ -55,7 +59,6 @@ var TILE_TYPES = [
     {name: 'ROAD_UP_DOWN', count: 8, legalPlacements: ["on road"], imgPath: "tile_images/road-up-down_8.png", banner: false, sides: [SIDES.road, SIDES.land, SIDES.road, SIDES.land]},
     {name: 'MONASTERY_ROAD', count: 2, legalPlacements: ["on monastery", "on road"], imgPath: "tile_images/mon-road_2.png", sides: [SIDES.land, SIDES.land, SIDES.road, SIDES.land]},
 ];
-
 
 var getTileSet = function(){
 	var tiles = [];
