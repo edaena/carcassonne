@@ -6,7 +6,7 @@ myApp.controller('GameController', ['$scope', function($scope) {
     $scope.activePlayer = $scope.player1;
     var tileSet = getTileSet();
 	$scope.nextTile = tileSet.pop();
-    var board = new Board(72, 72);
+    var board = new Board(11, 11);
     board.buildGame();
     $scope.tileCells = board.render();
     console.log(board);

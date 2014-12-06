@@ -15,6 +15,7 @@
 		<link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
 		<link rel="stylesheet" href="styles/tile.css">
 		<script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
+		<script src="scripts/javascript.js"></script>
 	</head>
 	<body ng-app='carcassonne'>
 		<div ng-view></div>
@@ -31,9 +32,10 @@
 			<div>
 				<b>Next Tile:</b>
 				<img class={{nextTile.rotationStyle}} ng-src={{nextTile.imgPath}} />
-				<div ng-click="" style="margin-left:100px; width: 1000px; height:1000px; border:solid; border-width:1px">
-					
-				<table>
+				<div id="containerBox" ng-click="" style="position:relative; overflow:hidden; margin-left:100px; width: 1000px; height:500px; border:solid; border-width:1px">
+				
+				<div id="draggableElement" style="width:2000px;height:2000px;position:absolute;top:0px;left:0px;">
+					<table>
 					<tbody>
 						<tr ng-repeat="row in tileCells">
 							<td ng-repeat="tile in tileCells[$index]">
@@ -45,6 +47,17 @@
 						</tr>
 					</tbody>
 				</table>
+				</div>
+				
+				<script type="text/javascript">
+				  var el = document.getElementById('draggableElement');
+				  var parent = el.parentNode;
+				  var leftEdge = parent.clientWidth - el.clientWidth;
+				  var topEdge = parent.clientHeight - el.clientHeight;
+				  var dragObj = new dragObject(el, null, 
+				      new Position(leftEdge, topEdge), new Position(0, 0));
+				</script>
+				
 				</div>
 			</div>
 		</div>
